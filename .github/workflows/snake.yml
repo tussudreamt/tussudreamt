@@ -6,11 +6,17 @@ on:
     - cron: "0 0 * * *"
   workflow_dispatch:
 
+# THIS IS THE FIX: Granting the action permission to push the generated files
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      # Updated to v4 to fix the Node.js deprecation warning
+      - uses: actions/checkout@v4
+      
       - uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -21,7 +27,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Push to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+        # Updated to v4 to fix the Node.js deprecation warning
+        uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
           build_dir: dist
