@@ -10,3 +10,7 @@
     <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/tussudreamt/tussudreamt/output/github-contribution-grid-snake.svg">
   </picture>
 </div>
+
+<div align="center">
+  <img src="./skills-pendants.svg" alt="My Skills Pendants">
+</div>
